@@ -11,25 +11,25 @@ export const ProjectsView: React.FC = () => {
   });
 
   return (
-    <div className="min-h-full px-6 py-10 md:px-12 md:py-14 max-w-5xl mx-auto font-sans animate-fade-in text-vscode-text">
+    <div className="min-h-full px-4 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 max-w-5xl mx-auto font-sans text-vscode-text">
       {/* Code comment header */}
-      <p className="font-mono text-xs text-vscode-gcm mb-2 italic">
+      <p className="font-mono text-xs text-vscode-gcm mb-2 italic animate-slide-up delay-100">
         // projects.js : things I've architected, built &amp; shipped
       </p>
 
       {/* Title */}
-      <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-vscode-bright tracking-tight mb-1">
+      <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-vscode-bright tracking-tight mb-1 animate-slide-up delay-150">
         Featured Projects
       </h1>
-      <p className="font-mono text-xs text-vscode-dim mb-6">
+      <p className="font-mono text-xs text-vscode-dim mb-6 animate-slide-up delay-200">
         const projects: ProductionApp[] = [ ...shipped, ...engineering_solutions ];
       </p>
 
-      {/* Filter Tabs */}
-      <div className="flex items-center gap-2 mb-8 border-b border-vscode-border pb-3 font-mono text-xs">
+      {/* Filter Tabs with touch scroll on mobile */}
+      <div className="flex items-center gap-2 mb-8 border-b border-vscode-border pb-3 font-mono text-xs overflow-x-auto no-scrollbar touch-scroll animate-slide-up delay-250">
         <button
           onClick={() => setActiveFilter('all')}
-          className={`px-3 py-1.5 rounded transition-colors ${
+          className={`px-3 py-1.5 rounded transition-colors shrink-0 ${
             activeFilter === 'all'
               ? 'bg-vscode-blue2 text-white font-semibold'
               : 'text-vscode-dim hover:text-vscode-bright hover:bg-white/5'
@@ -39,7 +39,7 @@ export const ProjectsView: React.FC = () => {
         </button>
         <button
           onClick={() => setActiveFilter('mobile')}
-          className={`px-3 py-1.5 rounded transition-colors ${
+          className={`px-3 py-1.5 rounded transition-colors shrink-0 ${
             activeFilter === 'mobile'
               ? 'bg-vscode-blue2 text-white font-semibold'
               : 'text-vscode-dim hover:text-vscode-bright hover:bg-white/5'
@@ -49,7 +49,7 @@ export const ProjectsView: React.FC = () => {
         </button>
         <button
           onClick={() => setActiveFilter('system')}
-          className={`px-3 py-1.5 rounded transition-colors ${
+          className={`px-3 py-1.5 rounded transition-colors shrink-0 ${
             activeFilter === 'system'
               ? 'bg-vscode-blue2 text-white font-semibold'
               : 'text-vscode-dim hover:text-vscode-bright hover:bg-white/5'
@@ -59,15 +59,16 @@ export const ProjectsView: React.FC = () => {
         </button>
       </div>
 
-      {/* Project Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {filteredProjects.map((project) => (
+      {/* Project Cards Grid with Staggered Motion */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        {filteredProjects.map((project, idx) => (
           <div
             key={project.id}
-            className="group relative bg-white/[0.02] border border-vscode-border rounded-lg p-6 flex flex-col justify-between hover:border-white/20 hover:-translate-y-1 hover:bg-white/[0.035] transition-all duration-200 shadow-lg"
+            className="group relative bg-white/[0.02] border border-vscode-border rounded-lg p-5 sm:p-6 flex flex-col justify-between hover:border-white/20 hover-lift hover:bg-white/[0.035] transition-all duration-300 shadow-lg animate-slide-up"
             style={{
               borderLeftColor: project.accent,
               borderLeftWidth: '3px',
+              animationDelay: `${idx * 70}ms`,
             }}
           >
             <div>
@@ -75,7 +76,7 @@ export const ProjectsView: React.FC = () => {
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2.5">
                   <span className="text-2xl">{project.icon}</span>
-                  <span className="font-mono text-[11px] text-vscode-dim uppercase tracking-wider">
+                  <span className="font-mono text-[10px] sm:text-[11px] text-vscode-dim uppercase tracking-wider">
                     {project.period}
                   </span>
                 </div>
@@ -93,7 +94,7 @@ export const ProjectsView: React.FC = () => {
               </div>
 
               {/* Title & Tagline */}
-              <h2 className="text-lg font-bold font-display text-vscode-bright mb-1 group-hover:text-vscode-blue transition-colors">
+              <h2 className="text-base sm:text-lg font-bold font-display text-vscode-bright mb-1 group-hover:text-vscode-blue transition-colors">
                 {project.name}
               </h2>
               <p className="text-xs text-vscode-dim font-medium mb-3">
@@ -110,8 +111,8 @@ export const ProjectsView: React.FC = () => {
                 <div className="text-[10px] uppercase tracking-wider text-vscode-yellow font-mono font-bold mb-1">
                   Key Technical Feats:
                 </div>
-                {project.keyFeatures.map((feat, idx) => (
-                  <div key={idx} className="flex items-start gap-1.5">
+                {project.keyFeatures.map((feat, fIdx) => (
+                  <div key={fIdx} className="flex items-start gap-1.5">
                     <span className="text-vscode-green shrink-0">✓</span>
                     <span>{feat}</span>
                   </div>
@@ -121,9 +122,9 @@ export const ProjectsView: React.FC = () => {
 
             {/* Tech Stack Pills */}
             <div className="flex flex-wrap gap-1.5 pt-3 border-t border-vscode-border/50">
-              {project.techStack.map((tech, idx) => (
+              {project.techStack.map((tech, tIdx) => (
                 <span
-                  key={idx}
+                  key={tIdx}
                   className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-vscode-bright border border-vscode-border"
                 >
                   {tech}

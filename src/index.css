@@ -136,8 +136,8 @@
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -150,27 +150,77 @@
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Animations */
+/* Touch friendly scrolling */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Motion Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(79, 193, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(79, 193, 255, 0.4);
+  }
 }
 
 .animate-fade-in {
   animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Code Editor Line Numbers */
-.line-numbers {
-  counter-reset: line;
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-.line-number::before {
-  counter-increment: line;
-  content: counter(line);
-  display: inline-block;
-  width: 2.5rem;
-  padding-right: 1.25rem;
-  text-align: right;
-  color: var(--dim);
-  user-select: none;
+
+.animate-cursor {
+  animation: cursorBlink 0.9s infinite;
+}
+
+.delay-100 { animation-delay: 80ms; }
+.delay-150 { animation-delay: 130ms; }
+.delay-200 { animation-delay: 180ms; }
+.delay-250 { animation-delay: 230ms; }
+.delay-300 { animation-delay: 280ms; }
+.delay-400 { animation-delay: 380ms; }
+.delay-500 { animation-delay: 480ms; }
+
+/* Interactive Hover Lift */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
 }

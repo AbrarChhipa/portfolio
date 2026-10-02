@@ -16,9 +16,9 @@ export const EditorTabs: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col bg-vscode-bg select-none border-b border-vscode-border">
+    <div className="flex flex-col bg-vscode-bg select-none border-b border-vscode-border shrink-0">
       {/* Tab Bar */}
-      <div className="flex items-center justify-between bg-vscode-bg2 overflow-x-auto no-scrollbar">
+      <div className="flex items-center justify-between bg-vscode-bg2 overflow-x-auto no-scrollbar touch-scroll whitespace-nowrap">
         <div className="flex items-center">
           {openTabs.map((fileId) => {
             const file = PORTFOLIO_FILES.find((f) => f.id === fileId);
@@ -29,14 +29,14 @@ export const EditorTabs: React.FC = () => {
               <div
                 key={fileId}
                 onClick={() => openFile(fileId)}
-                className={`group flex items-center gap-2 px-3 py-2 text-xs border-r border-vscode-border cursor-pointer transition-colors relative border-t-2 ${
+                className={`group flex items-center gap-2 px-3 py-2 text-xs border-r border-vscode-border cursor-pointer transition-colors relative border-t-2 shrink-0 ${
                   isActive
                     ? 'bg-vscode-bg text-vscode-bright border-t-vscode-blue font-medium'
                     : 'bg-vscode-bg2 text-vscode-dim hover:bg-vscode-bg3 hover:text-vscode-text border-t-transparent'
                 }`}
               >
                 <FileIcon type={file.fileType} />
-                <span className="font-mono text-[12px] truncate max-w-[150px]">{file.name}</span>
+                <span className="font-mono text-[11px] sm:text-[12px] truncate max-w-[120px] sm:max-w-[160px]">{file.name}</span>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -55,7 +55,7 @@ export const EditorTabs: React.FC = () => {
         </div>
 
         {/* Tab Right Actions */}
-        <div className="hidden sm:flex items-center gap-2 pr-3 text-vscode-dim">
+        <div className="hidden sm:flex items-center gap-2 pr-3 text-vscode-dim shrink-0">
           <button 
             onClick={() => openFile('projects')}
             className="p-1 hover:text-vscode-bright hover:bg-white/10 rounded" 
@@ -74,7 +74,7 @@ export const EditorTabs: React.FC = () => {
 
       {/* Breadcrumb Bar */}
       {currentFile && (
-        <div className="h-6 px-4 bg-vscode-bg border-b border-vscode-border/40 flex items-center gap-1.5 text-[11px] text-vscode-dim font-mono">
+        <div className="h-6 px-3 sm:px-4 bg-vscode-bg border-b border-vscode-border/40 flex items-center gap-1.5 text-[10px] sm:text-[11px] text-vscode-dim font-mono overflow-x-auto no-scrollbar">
           <span className="hover:text-vscode-bright cursor-pointer" onClick={() => openFile('home')}>portfolio</span>
           <ChevronRight size={11} className="text-vscode-dim/60" />
           <span className="hover:text-vscode-bright cursor-pointer">{currentFile.folder}</span>

@@ -4,42 +4,42 @@ import { EXPERIENCES } from '../../data/portfolioData';
 
 export const ExperienceView: React.FC = () => {
   return (
-    <div className="min-h-full px-6 py-10 md:px-12 md:py-14 max-w-4xl mx-auto font-sans animate-fade-in text-vscode-text">
+    <div className="min-h-full px-4 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 max-w-4xl mx-auto font-sans text-vscode-text">
       {/* Code comment header */}
-      <p className="font-mono text-xs text-vscode-gcm mb-2 italic">
+      <p className="font-mono text-xs text-vscode-gcm mb-2 italic animate-slide-up delay-100">
         // experience.ts — professional career timeline &amp; accomplishments
       </p>
 
       {/* Title */}
-      <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-vscode-bright tracking-tight mb-1">
+      <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-vscode-bright tracking-tight mb-1 animate-slide-up delay-150">
         Experience
       </h1>
-      <p className="font-mono text-xs text-vscode-dim mb-8">
+      <p className="font-mono text-xs text-vscode-dim mb-8 animate-slide-up delay-200">
         interface CareerTimeline extends ProfessionalMilestones &#123;&#125;
       </p>
 
       {/* Timeline Container */}
-      <div className="relative border-l-2 border-vscode-border/80 ml-3 sm:ml-4 pl-6 sm:pl-8 space-y-12">
-        {EXPERIENCES.map((exp) => (
+      <div className="relative border-l-2 border-vscode-border/80 ml-2.5 sm:ml-4 pl-4 sm:pl-8 space-y-8 sm:space-y-12 animate-slide-up delay-250">
+        {EXPERIENCES.map((exp, idx) => (
           <div key={exp.id} className="relative group">
-            {/* Timeline Dot Indicator */}
+            {/* Timeline Dot Indicator with Pulse on Current */}
             <div
-              className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 transition-all ${
+              className={`absolute -left-[23px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 transition-all ${
                 exp.current
-                  ? 'bg-vscode-blue border-vscode-blue shadow-[0_0_10px_var(--blue)]'
+                  ? 'bg-vscode-blue border-vscode-blue shadow-[0_0_10px_var(--blue)] animate-pulse'
                   : 'bg-vscode-bg border-vscode-dim group-hover:border-vscode-bright'
               }`}
             />
 
             {/* Experience Card */}
-            <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-6 hover:border-vscode-blue/40 transition-colors">
+            <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-4 sm:p-6 hover:border-vscode-blue/40 hover-lift transition-all">
               {/* Header Info */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
                 <div>
-                  <h2 className="text-lg sm:text-xl font-bold font-display text-vscode-bright">
+                  <h2 className="text-base sm:text-xl font-bold font-display text-vscode-bright">
                     {exp.role}
                   </h2>
-                  <div className="text-sm font-semibold text-vscode-blue mt-0.5">
+                  <div className="text-xs sm:text-sm font-semibold text-vscode-blue mt-0.5">
                     @ {exp.company}
                   </div>
                 </div>
@@ -57,7 +57,7 @@ export const ExperienceView: React.FC = () => {
               </div>
 
               {/* Location & Type */}
-              <div className="flex items-center gap-2 text-xs text-vscode-dim mb-4">
+              <div className="flex items-center gap-2 text-xs text-vscode-dim mb-3 sm:mb-4">
                 <span className="flex items-center gap-1">
                   <MapPin size={12} /> {exp.location}
                 </span>
@@ -66,17 +66,17 @@ export const ExperienceView: React.FC = () => {
               </div>
 
               {/* Summary */}
-              <p className="text-sm text-vscode-text/90 leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-vscode-text/90 leading-relaxed mb-4">
                 {exp.summary}
               </p>
 
               {/* Achievements Bullets */}
-              <div className="space-y-2 mb-5">
-                <div className="text-[11px] font-mono uppercase tracking-wider text-vscode-yellow font-bold">
+              <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-5">
+                <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-vscode-yellow font-bold">
                   Key Production Contributions:
                 </div>
-                {exp.achievements.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-xs text-vscode-dim leading-relaxed">
+                {exp.achievements.map((item, aIdx) => (
+                  <div key={aIdx} className="flex items-start gap-1.5 sm:gap-2 text-xs text-vscode-dim leading-relaxed">
                     <span className="text-vscode-blue shrink-0 mt-0.5">▹</span>
                     <span>{item}</span>
                   </div>
@@ -85,9 +85,9 @@ export const ExperienceView: React.FC = () => {
 
               {/* Tech Stack Pills */}
               <div className="flex flex-wrap gap-1.5 pt-3 border-t border-vscode-border/50">
-                {exp.technologies.map((t, idx) => (
+                {exp.technologies.map((t, tIdx) => (
                   <span
-                    key={idx}
+                    key={tIdx}
                     className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-vscode-bright border border-vscode-border"
                   >
                     {t}

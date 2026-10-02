@@ -26,7 +26,7 @@ export const ContactView: React.FC = () => {
   };
 
   return (
-    <div className="min-h-full px-6 py-10 md:px-12 md:py-14 max-w-4xl mx-auto font-sans animate-fade-in text-vscode-text">
+    <div className="min-h-full px-4 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 max-w-4xl mx-auto font-sans animate-slide-up text-vscode-text">
       {/* CSS comment */}
       <p className="font-mono text-xs text-vscode-gcm mb-2 italic">
         /* contact.css — direct channels &amp; connection interface */
@@ -48,7 +48,7 @@ export const ContactView: React.FC = () => {
           </h2>
 
           {/* Email Card */}
-          <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-4 flex items-center justify-between hover:border-vscode-blue/40 transition-colors">
+          <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-4 flex items-center justify-between hover:border-vscode-blue/40 transition-colors hover-lift">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded bg-vscode-green/10 text-vscode-green">
                 <Mail size={18} />
@@ -77,7 +77,7 @@ export const ContactView: React.FC = () => {
           </div>
 
           {/* Phone Card */}
-          <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-4 flex items-center justify-between hover:border-vscode-blue/40 transition-colors">
+          <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-4 flex items-center justify-between hover:border-vscode-blue/40 transition-colors hover-lift">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded bg-vscode-yellow/10 text-vscode-yellow">
                 <Phone size={18} />
@@ -102,7 +102,7 @@ export const ContactView: React.FC = () => {
           </div>
 
           {/* Location Card */}
-          <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-4 flex items-center gap-3">
+          <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-4 flex items-center gap-3 hover-lift">
             <div className="p-2 rounded bg-vscode-purple/10 text-vscode-purple">
               <MapPin size={18} />
             </div>
@@ -120,7 +120,7 @@ export const ContactView: React.FC = () => {
               href={PERSONAL_INFO.links.github}
               target="_blank"
               rel="noreferrer"
-              className="bg-white/[0.02] border border-vscode-border rounded-lg p-3 flex items-center gap-2 text-xs hover:border-vscode-blue hover:text-vscode-bright transition-colors"
+              className="bg-white/[0.02] border border-vscode-border rounded-lg p-3 flex items-center gap-2 text-xs hover:border-vscode-blue hover:text-vscode-bright transition-colors hover-lift"
             >
               <Github size={15} />
               <span>github.com/AbrarChhipa</span>
@@ -129,7 +129,7 @@ export const ContactView: React.FC = () => {
               href={PERSONAL_INFO.links.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="bg-white/[0.02] border border-vscode-border rounded-lg p-3 flex items-center gap-2 text-xs hover:border-vscode-blue hover:text-vscode-bright transition-colors"
+              className="bg-white/[0.02] border border-vscode-border rounded-lg p-3 flex items-center gap-2 text-xs hover:border-vscode-blue hover:text-vscode-bright transition-colors hover-lift"
             >
               <Linkedin size={15} className="text-[#0a66c2]" />
               <span>LinkedIn Profile</span>

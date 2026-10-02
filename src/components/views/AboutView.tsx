@@ -27,22 +27,22 @@ export const AboutView: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-full px-6 py-10 md:px-12 md:py-14 max-w-4xl mx-auto font-sans animate-fade-in text-vscode-text">
+    <div className="min-h-full px-4 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 max-w-4xl mx-auto font-sans text-vscode-text">
       {/* HTML comment tag */}
-      <p className="font-mono text-xs text-vscode-gcm mb-2 italic">
+      <p className="font-mono text-xs text-vscode-gcm mb-2 italic animate-slide-up delay-100">
         &lt;!-- about.html - Mohammad Abrar --&gt;
       </p>
 
       {/* Title */}
-      <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-vscode-bright tracking-tight mb-1">
+      <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-vscode-bright tracking-tight mb-1 animate-slide-up delay-150">
         About Me
       </h1>
-      <p className="font-mono text-xs text-vscode-dim mb-8">
+      <p className="font-mono text-xs text-vscode-dim mb-6 sm:mb-8 animate-slide-up delay-200">
         &lt;summary&gt; who I am · what I build · how I engineer &lt;/summary&gt;
       </p>
 
       {/* Story Card */}
-      <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-6 sm:p-8 mb-8 space-y-4 text-sm sm:text-base leading-relaxed text-vscode-text">
+      <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-5 sm:p-8 mb-8 space-y-4 text-xs sm:text-sm md:text-base leading-relaxed text-vscode-text hover-lift transition-all animate-slide-up delay-250">
         <p>
           Hello! I'm <strong className="text-vscode-bright font-semibold">Mohammad Abrar</strong>, a dedicated{' '}
           <span className="text-vscode-blue font-semibold">React Native Developer</span> based in{' '}
@@ -65,33 +65,33 @@ export const AboutView: React.FC = () => {
       </div>
 
       {/* Highlights Grid */}
-      <h2 className="text-xl font-bold font-display text-vscode-bright mb-4 flex items-center gap-2">
+      <h2 className="text-lg sm:text-xl font-bold font-display text-vscode-bright mb-4 flex items-center gap-2 animate-slide-up delay-300">
         <Award className="text-vscode-yellow" size={18} />
         <span>What I Bring To The Table</span>
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-10 animate-slide-up delay-300">
         {highlights.map((h, i) => (
           <div
             key={i}
-            className="p-5 rounded-lg bg-white/[0.02] border border-vscode-border hover:border-vscode-blue/40 transition-colors"
+            className="p-4 sm:p-5 rounded-lg bg-white/[0.02] border border-vscode-border hover:border-vscode-blue/40 hover-lift transition-all"
           >
-            <div className="mb-2.5">{h.icon}</div>
-            <h3 className="font-semibold text-vscode-bright text-sm mb-1">{h.title}</h3>
-            <p className="text-xs text-vscode-dim leading-relaxed">{h.desc}</p>
+            <div className="mb-2">{h.icon}</div>
+            <h3 className="font-semibold text-vscode-bright text-xs sm:text-sm mb-1">{h.title}</h3>
+            <p className="text-[11px] sm:text-xs text-vscode-dim leading-relaxed">{h.desc}</p>
           </div>
         ))}
       </div>
 
       {/* Education Card */}
-      <h2 className="text-xl font-bold font-display text-vscode-bright mb-4 flex items-center gap-2">
+      <h2 className="text-lg sm:text-xl font-bold font-display text-vscode-bright mb-4 flex items-center gap-2 animate-slide-up delay-400">
         <GraduationCap className="text-vscode-blue" size={20} />
         <span>Education</span>
       </h2>
 
-      <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-6 hover:border-vscode-blue/30 transition-colors">
+      <div className="bg-white/[0.02] border border-vscode-border rounded-lg p-5 sm:p-6 hover:border-vscode-blue/30 hover-lift transition-all animate-slide-up delay-400">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-          <h3 className="font-bold text-vscode-bright text-base">
+          <h3 className="font-bold text-vscode-bright text-sm sm:text-base">
             {EDUCATION.institution}
           </h3>
           <span className="font-mono text-xs text-vscode-green font-semibold bg-vscode-green/10 px-2 py-0.5 rounded border border-vscode-green/20 w-fit">
@@ -99,7 +99,7 @@ export const AboutView: React.FC = () => {
           </span>
         </div>
 
-        <div className="text-sm text-vscode-blue font-medium mb-1">
+        <div className="text-xs sm:text-sm text-vscode-blue font-medium mb-1">
           {EDUCATION.degree}
         </div>
 
@@ -111,7 +111,7 @@ export const AboutView: React.FC = () => {
           <span>Graduated {EDUCATION.period}</span>
         </div>
 
-        <div className="space-y-1.5 text-xs text-vscode-dim border-t border-vscode-border/50 pt-3">
+        <div className="space-y-1.5 text-[11px] sm:text-xs text-vscode-dim border-t border-vscode-border/50 pt-3">
           {EDUCATION.highlights.map((item, idx) => (
             <div key={idx} className="flex items-start gap-2">
               <span className="text-vscode-blue mt-0.5">▹</span>

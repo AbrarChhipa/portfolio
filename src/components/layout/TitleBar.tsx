@@ -6,9 +6,10 @@ import {
   Terminal, 
   Download, 
   Github, 
-  Linkedin,
+  Linkedin, 
   Mail,
-  ExternalLink 
+  Menu,
+  X
 } from 'lucide-react';
 import { useWorkspace } from '../../context/WorkspaceContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -18,7 +19,9 @@ export const TitleBar: React.FC = () => {
   const { 
     setCommandPaletteOpen, 
     toggleTerminal, 
+    sidebarView,
     setSidebarView, 
+    toggleSidebar,
     openFile, 
     currentFile 
   } = useWorkspace();
@@ -52,11 +55,20 @@ export const TitleBar: React.FC = () => {
   };
 
   return (
-    <div className="h-9 bg-vscode-title border-b border-vscode-border flex items-center justify-between px-3 text-xs text-vscode-text select-none z-40 relative">
-      {/* Left: Window Controls & Dropdown Menus */}
-      <div className="flex items-center gap-3" ref={menuRef}>
+    <div className="h-9 bg-vscode-title border-b border-vscode-border flex items-center justify-between px-2 sm:px-3 text-xs text-vscode-text select-none z-40 relative">
+      {/* Left: Window Controls, Mobile Toggle & Dropdown Menus */}
+      <div className="flex items-center gap-2 sm:gap-3" ref={menuRef}>
+        {/* Mobile Hamburger Toggle */}
+        <button
+          onClick={toggleSidebar}
+          className="md:hidden p-1 rounded hover:bg-white/10 text-vscode-bright transition-colors"
+          title="Toggle Explorer"
+        >
+          {sidebarView ? <X size={16} /> : <Menu size={16} />}
+        </button>
+
         {/* macOS Traffic Lights */}
-        <div className="flex items-center gap-1.5 pr-2">
+        <div className="hidden sm:flex items-center gap-1.5 pr-1">
           <div 
             onClick={() => window.close()} 
             title="Close" 
@@ -75,9 +87,9 @@ export const TitleBar: React.FC = () => {
         </div>
 
         {/* VS Code Logo */}
-        <div className="flex items-center gap-1.5 font-semibold text-vscode-bright">
+        <div className="flex items-center gap-1 font-semibold text-vscode-bright">
           <span className="text-[#007acc] text-sm">🔷</span>
-          <span className="hidden md:inline font-mono">Code</span>
+          <span className="hidden sm:inline font-mono">Code</span>
         </div>
 
         {/* Menu Bar Dropdowns */}
@@ -261,12 +273,12 @@ export const TitleBar: React.FC = () => {
       {/* Center: Interactive Search / Command Palette Bar */}
       <div 
         onClick={() => setCommandPaletteOpen(true)}
-        className="flex items-center justify-center gap-2 bg-vscode-bg3/80 hover:bg-vscode-bg3 border border-vscode-border/80 hover:border-vscode-blue2 px-3 py-1 rounded-md text-xs cursor-pointer text-vscode-dim hover:text-vscode-text w-64 md:w-96 max-w-lg transition-all shadow-inner"
+        className="flex items-center justify-center gap-2 bg-vscode-bg3/80 hover:bg-vscode-bg3 border border-vscode-border/80 hover:border-vscode-blue2 px-2 sm:px-3 py-1 rounded-md text-xs cursor-pointer text-vscode-dim hover:text-vscode-text w-36 sm:w-64 md:w-96 max-w-lg transition-all shadow-inner"
         title="Quick Search & Command Palette (Ctrl+P / Cmd+P)"
       >
-        <Search size={13} />
+        <Search size={13} className="shrink-0" />
         <span className="truncate">
-          {PERSONAL_INFO.name} — {currentFile ? currentFile.name : 'portfolio'}
+          {currentFile ? currentFile.name : 'portfolio'}
         </span>
         <kbd className="hidden sm:inline-block ml-auto text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-vscode-dim font-mono">
           ⌘P
@@ -274,7 +286,7 @@ export const TitleBar: React.FC = () => {
       </div>
 
       {/* Right: Window & Status Actions */}
-      <div className="flex items-center gap-2 text-vscode-dim">
+      <div className="flex items-center gap-1.5 sm:gap-2 text-vscode-dim">
         <span className="hidden xl:inline text-[11px] text-vscode-dim bg-white/5 px-2 py-0.5 rounded border border-vscode-border">
           {currentTheme.name}
         </span>
@@ -287,7 +299,7 @@ export const TitleBar: React.FC = () => {
         </button>
         <button
           onClick={toggleFullscreen}
-          className="p-1 rounded hover:bg-white/10 hover:text-vscode-bright transition-colors"
+          className="p-1 rounded hover:bg-white/10 hover:text-vscode-bright transition-colors hidden sm:block"
           title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
         >
           {isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}

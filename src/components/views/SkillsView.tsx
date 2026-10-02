@@ -23,20 +23,20 @@ export const SkillsView: React.FC = () => {
   );
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(jsonString);
+    navigator.clipboard.writeText(jsonString).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="min-h-full px-6 py-10 md:px-12 md:py-14 max-w-5xl mx-auto font-sans animate-fade-in text-vscode-text">
+    <div className="min-h-full px-4 py-6 sm:px-8 sm:py-10 md:px-12 md:py-14 max-w-5xl mx-auto font-sans text-vscode-text">
       {/* Code comment header */}
-      <p className="font-mono text-xs text-vscode-gcm mb-2 italic">
+      <p className="font-mono text-xs text-vscode-gcm mb-2 italic animate-slide-up delay-100">
         // skills.json — technical skills &amp; core competencies
       </p>
 
       {/* Header & Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2 animate-slide-up delay-150">
         <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-vscode-bright tracking-tight">
           Skills Arsenal
         </h1>
@@ -68,28 +68,28 @@ export const SkillsView: React.FC = () => {
         </div>
       </div>
 
-      <p className="font-mono text-xs text-vscode-dim mb-8">
+      <p className="font-mono text-xs text-vscode-dim mb-8 animate-slide-up delay-200">
         &#123; "status": "shipping_production", "focus": "mobile_performance" &#125;
       </p>
 
       {/* VISUAL CARDS VIEW */}
       {viewMode === 'visual' ? (
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8 animate-slide-up delay-250">
           {SKILL_CATEGORIES.map((category, idx) => (
             <div
               key={idx}
-              className="bg-white/[0.02] border border-vscode-border rounded-lg p-6 hover:border-vscode-blue/30 transition-colors"
+              className="bg-white/[0.02] border border-vscode-border rounded-lg p-4 sm:p-6 hover:border-vscode-blue/30 hover-lift transition-all"
             >
               {/* Category Header */}
-              <div className="flex items-center gap-2.5 pb-3 mb-4 border-b border-vscode-border/50">
-                <span className="text-xl">{category.icon}</span>
-                <h2 className="text-base sm:text-lg font-bold font-display text-vscode-bright">
+              <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-vscode-border/50">
+                <span className="text-lg sm:text-xl">{category.icon}</span>
+                <h2 className="text-sm sm:text-lg font-bold font-display text-vscode-bright">
                   {category.category}
                 </h2>
               </div>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
                 {category.skills.map((skill, sIdx) => (
                   <div
                     key={sIdx}
@@ -115,10 +115,10 @@ export const SkillsView: React.FC = () => {
                       <span>{skill.proficiency}%</span>
                     </div>
 
-                    {/* Progress Bar */}
+                    {/* Animated Progress Bar */}
                     <div className="w-full h-1.5 bg-black/40 rounded-full overflow-hidden">
                       <div
-                        className="h-full rounded-full transition-all duration-500"
+                        className="h-full rounded-full transition-all duration-700 ease-out"
                         style={{
                           width: `${skill.proficiency}%`,
                           backgroundColor: skill.highlight ? 'var(--blue)' : 'var(--green)',
@@ -133,7 +133,7 @@ export const SkillsView: React.FC = () => {
         </div>
       ) : (
         /* RAW JSON VIEW */
-        <div className="relative bg-vscode-bg2/90 border border-vscode-border rounded-lg p-5 font-mono text-xs overflow-x-auto shadow-2xl">
+        <div className="relative bg-vscode-bg2/90 border border-vscode-border rounded-lg p-4 sm:p-5 font-mono text-[11px] sm:text-xs overflow-x-auto no-scrollbar shadow-2xl animate-slide-up delay-250">
           <div className="flex items-center justify-between pb-3 mb-3 border-b border-vscode-border/50 text-vscode-dim">
             <span>data/skills.json</span>
             <button
