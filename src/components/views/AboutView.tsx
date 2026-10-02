@@ -11,8 +11,8 @@ export const AboutView: React.FC = () => {
     },
     {
       icon: <Sparkles className="text-vscode-yellow" size={20} />,
-      title: "Complex Media Pipelines",
-      desc: "Architected 4GB+ chunked AWS S3 multipart video uploaders, Instagram-style interactive reels/stories with stickers, text, and doodle canvas.",
+      title: "Interactive Media & Reels",
+      desc: "Architected Instagram-style interactive reels/stories with stickers, text overlays, gesture doodle tools, and high-performance video modules.",
     },
     {
       icon: <ShieldCheck className="text-vscode-green" size={20} />,
@@ -55,9 +55,8 @@ export const AboutView: React.FC = () => {
         </p>
 
         <p className="text-vscode-dim">
-          I thrive on solving difficult technical hurdles: whether that is engineering a robust{' '}
-          <span className="text-vscode-yellow">AWS S3 multipart uploader</span> that streams 4GB+ video files in ~2 minutes, developing interactive Instagram-style stories with custom gesture doodling and stickers, integrating ultra-low latency live broadcasting via{' '}
-          <span className="text-vscode-purple">ZegoCloud</span>, or optimizing API layers with RTK Query to slash latency by 30%.
+          I thrive on solving difficult technical hurdles: developing interactive Instagram-style stories with custom gesture doodling and stickers, integrating ultra-low latency live broadcasting via{' '}
+          <span className="text-vscode-purple">ZegoCloud</span>, optimizing API layers with RTK Query to slash latency by 30%, and building voice-guided accessibility tools with NFC for visually impaired users.
         </p>
 
         <p className="text-vscode-dim">

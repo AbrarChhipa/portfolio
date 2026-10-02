@@ -6,7 +6,9 @@ import {
   Phone, 
   Download, 
   ArrowRight, 
-  Terminal
+  Terminal,
+  Check,
+  Radio
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { useWorkspace } from '../../context/WorkspaceContext';
@@ -14,6 +16,7 @@ import { useWorkspace } from '../../context/WorkspaceContext';
 export const HomeView: React.FC = () => {
   const { openFile, toggleTerminal } = useWorkspace();
   const [roleIndex, setRoleIndex] = useState(0);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -22,8 +25,33 @@ export const HomeView: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Copy to clipboard
+    navigator.clipboard.writeText(PERSONAL_INFO.email).catch(() => {});
+    setToastMessage(`Opening Gmail & copied ${PERSONAL_INFO.email} to clipboard!`);
+    setTimeout(() => setToastMessage(null), 4000);
+
+    // Open Gmail composer in a new tab
+    window.open(PERSONAL_INFO.links.gmail, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <div className="min-h-full px-6 py-10 md:px-12 md:py-14 max-w-5xl mx-auto font-sans animate-fade-in text-vscode-text">
+    <div className="min-h-full px-6 py-10 md:px-12 md:py-14 max-w-5xl mx-auto font-sans animate-fade-in text-vscode-text relative">
+      {/* Toast Notification */}
+      {toastMessage && (
+        <div className="fixed top-12 right-6 bg-vscode-bg2 border border-vscode-green text-vscode-bright px-4 py-2.5 rounded-lg shadow-2xl flex items-center gap-2.5 z-50 animate-fade-in text-xs font-mono">
+          <Check size={14} className="text-vscode-green" />
+          <span>{toastMessage}</span>
+          <button 
+            onClick={() => setToastMessage(null)}
+            className="ml-2 text-vscode-dim hover:text-white"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {/* Code Comment greeting */}
       <div className="font-mono text-sm text-vscode-green mb-3 flex items-center gap-2">
         <span>// hello world !! Welcome to my portfolio</span>
@@ -123,13 +151,15 @@ export const HomeView: React.FC = () => {
           <span>LinkedIn</span>
         </a>
 
-        <a
-          href={PERSONAL_INFO.links.email}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[0.03] border border-vscode-border hover:border-vscode-blue text-vscode-text hover:text-vscode-bright transition-colors"
+        {/* Email Badge with Smart Gmail & Copy Handler */}
+        <button
+          onClick={handleEmailClick}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[0.03] border border-vscode-border hover:border-vscode-green text-vscode-text hover:text-vscode-bright transition-colors group cursor-pointer"
+          title="Click to open in Gmail and copy address"
         >
-          <Mail size={14} className="text-vscode-green" />
+          <Mail size={14} className="text-vscode-green group-hover:scale-110 transition-transform" />
           <span>{PERSONAL_INFO.email}</span>
-        </a>
+        </button>
 
         <a
           href={PERSONAL_INFO.links.phone}
@@ -148,8 +178,8 @@ export const HomeView: React.FC = () => {
         </div>
         <div><span className="text-vscode-purple">const</span> <span className="text-vscode-yellow">developer</span>: <span className="text-vscode-green">ReactMobileArchitect</span> = &#123;</div>
         <div className="pl-4"><span className="text-vscode-blue">name</span>: <span className="text-vscode-orange">"{PERSONAL_INFO.name}"</span>,</div>
-        <div className="pl-4"><span className="text-vscode-blue">coreSpecialization</span>: <span className="text-vscode-orange">"React Native (iOS &amp; Android) + React.js"</span>,</div>
-        <div className="pl-4"><span className="text-vscode-blue">heavyMediaProcessing</span>: [<span className="text-vscode-orange">"AWS S3 Multipart 4GB+"</span>, <span className="text-vscode-orange">"ZegoCloud Live RTC"</span>, <span className="text-vscode-orange">"Instagram Reels"</span>],</div>
+        <div className="pl-4"><span className="text-vscode-blue">primaryStack</span>: <span className="text-vscode-orange">"React Native (Android &amp; iOS) + React.js"</span>,</div>
+        <div className="pl-4"><span className="text-vscode-blue">coreArchitecture</span>: [<span className="text-vscode-orange">"Cross-Platform Android &amp; iOS"</span>, <span className="text-vscode-orange">"Redux Toolkit &amp; RTK Query"</span>, <span className="text-vscode-orange">"Reels &amp; Live Streaming"</span>, <span className="text-vscode-orange">"Razorpay Gateways"</span>],</div>
         <div className="pl-4"><span className="text-vscode-blue">stateManagement</span>: [<span className="text-vscode-orange">"Redux Toolkit"</span>, <span className="text-vscode-orange">"RTK Query (30% latency reduced)"</span>],</div>
         <div className="pl-4"><span className="text-vscode-blue">paymentGateways</span>: [<span className="text-vscode-orange">"Razorpay Webhooks &amp; In-App SDK"</span>],</div>
         <div className="pl-4"><span className="text-vscode-blue">currentFocus</span>: <span className="text-vscode-orange">"Building fluid, high-performance mobile experiences"</span>,</div>

@@ -155,6 +155,7 @@ export const TerminalPanel: React.FC = () => {
         addLine('output', `  Email:    ${PERSONAL_INFO.email}`);
         addLine('output', `  Phone:    ${PERSONAL_INFO.phone}`);
         addLine('output', `  Location: ${PERSONAL_INFO.location}`);
+        addLine('output', `  LinkedIn: ${PERSONAL_INFO.links.linkedin}`);
         addLine('output', `  GitHub:   ${PERSONAL_INFO.links.github}`);
         break;
 

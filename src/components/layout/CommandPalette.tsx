@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Terminal, Palette, Download, ExternalLink } from 'lucide-react';
+import { Search, Terminal, Palette, Download, ExternalLink, Mail, Copy } from 'lucide-react';
 import { useWorkspace } from '../../context/WorkspaceContext';
 import { useTheme } from '../../context/ThemeContext';
 import { PORTFOLIO_FILES, PERSONAL_INFO } from '../../data/portfolioData';
@@ -54,6 +54,54 @@ export const CommandPalette: React.FC = () => {
       icon: <FileIcon type={f.fileType} size={14} />,
       action: () => openFile(f.id),
     })),
+    // Mail & Contact Actions
+    {
+      id: 'action-gmail',
+      category: 'action' as const,
+      title: 'Mail: Compose Email via Gmail',
+      subtitle: `Open Gmail in new tab (${PERSONAL_INFO.email})`,
+      icon: <Mail size={14} className="text-vscode-green" />,
+      action: () => {
+        navigator.clipboard.writeText(PERSONAL_INFO.email).catch(() => {});
+        window.open(PERSONAL_INFO.links.gmail, '_blank', 'noopener,noreferrer');
+      },
+    },
+    {
+      id: 'action-contact-tab',
+      category: 'action' as const,
+      title: 'Mail: Open Contact Center (contact.css)',
+      subtitle: 'In-app message form & direct channels',
+      icon: <Mail size={14} className="text-vscode-blue" />,
+      action: () => openFile('contact'),
+    },
+    {
+      id: 'action-copy-email',
+      category: 'action' as const,
+      title: 'Mail: Copy Email Address',
+      subtitle: PERSONAL_INFO.email,
+      icon: <Copy size={14} className="text-vscode-yellow" />,
+      action: () => {
+        navigator.clipboard.writeText(PERSONAL_INFO.email).catch(() => {});
+      },
+    },
+    // LinkedIn
+    {
+      id: 'action-linkedin',
+      category: 'action' as const,
+      title: 'External: Visit LinkedIn Profile',
+      subtitle: PERSONAL_INFO.links.linkedin,
+      icon: <ExternalLink size={14} className="text-[#0a66c2]" />,
+      action: () => window.open(PERSONAL_INFO.links.linkedin, '_blank', 'noopener,noreferrer'),
+    },
+    // GitHub
+    {
+      id: 'action-github',
+      category: 'action' as const,
+      title: 'External: Visit GitHub Profile',
+      subtitle: PERSONAL_INFO.links.github,
+      icon: <ExternalLink size={14} className="text-vscode-green" />,
+      action: () => window.open(PERSONAL_INFO.links.github, '_blank', 'noopener,noreferrer'),
+    },
     // Actions
     {
       id: 'action-terminal',
@@ -75,14 +123,6 @@ export const CommandPalette: React.FC = () => {
         link.download = 'Mohammad_Abrar_Resume.pdf';
         link.click();
       },
-    },
-    {
-      id: 'action-github',
-      category: 'action' as const,
-      title: 'External: Visit GitHub Profile',
-      subtitle: PERSONAL_INFO.links.github,
-      icon: <ExternalLink size={14} className="text-vscode-green" />,
-      action: () => window.open(PERSONAL_INFO.links.github, '_blank'),
     },
     // Themes
     ...themes.map((t) => ({
@@ -144,7 +184,7 @@ export const CommandPalette: React.FC = () => {
               setSelectedIndex(0);
             }}
             onKeyDown={handleInputKeyDown}
-            placeholder="Type a command or filename (e.g. home, projects, theme)..."
+            placeholder="Type a command or filename (e.g. mail, projects, theme, linkedin)..."
             className="flex-1 bg-transparent text-sm text-vscode-bright placeholder-vscode-dim outline-none"
           />
           <kbd className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-vscode-dim">

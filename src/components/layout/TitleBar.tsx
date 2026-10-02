@@ -6,7 +6,9 @@ import {
   Terminal, 
   Download, 
   Github, 
-  Mail 
+  Linkedin,
+  Mail,
+  ExternalLink 
 } from 'lucide-react';
 import { useWorkspace } from '../../context/WorkspaceContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -106,6 +108,13 @@ export const TitleBar: React.FC = () => {
                   <span>Open projects.js</span>
                   <span className="text-[10px] text-vscode-dim">⌘2</span>
                 </button>
+                <button
+                  onClick={() => { openFile('contact'); setActiveMenu(null); }}
+                  className="w-full text-left px-3 py-1.5 hover:bg-vscode-blue2 hover:text-white flex items-center justify-between"
+                >
+                  <span>Open contact.css (Mail)</span>
+                  <span className="text-[10px] text-vscode-dim">⌘3</span>
+                </button>
                 <div className="my-1 border-t border-vscode-border" />
                 <a
                   href="/Mohammad_Abrar_Resume.pdf"
@@ -198,13 +207,23 @@ export const TitleBar: React.FC = () => {
               Help
             </button>
             {activeMenu === 'help' && (
-              <div className="absolute top-full left-0 mt-1 w-56 bg-vscode-bg2 border border-vscode-border rounded shadow-2xl py-1 z-50 text-vscode-text">
+              <div className="absolute top-full left-0 mt-1 w-64 bg-vscode-bg2 border border-vscode-border rounded shadow-2xl py-1 z-50 text-vscode-text">
                 <button
                   onClick={() => { openFile('about'); setActiveMenu(null); }}
                   className="w-full text-left px-3 py-1.5 hover:bg-vscode-blue2 hover:text-white"
                 >
                   About Mohammad Abrar
                 </button>
+                <a
+                  href={PERSONAL_INFO.links.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setActiveMenu(null)}
+                  className="w-full text-left px-3 py-1.5 hover:bg-vscode-blue2 hover:text-white flex items-center gap-2"
+                >
+                  <Linkedin size={13} className="text-[#0a66c2]" />
+                  <span>LinkedIn Profile</span>
+                </a>
                 <a
                   href={PERSONAL_INFO.links.github}
                   target="_blank"
@@ -215,14 +234,24 @@ export const TitleBar: React.FC = () => {
                   <Github size={13} />
                   <span>GitHub Profile</span>
                 </a>
+                <div className="my-1 border-t border-vscode-border" />
                 <a
-                  href={`mailto:${PERSONAL_INFO.email}`}
+                  href={PERSONAL_INFO.links.gmail}
+                  target="_blank"
+                  rel="noreferrer"
                   onClick={() => setActiveMenu(null)}
                   className="w-full text-left px-3 py-1.5 hover:bg-vscode-blue2 hover:text-white flex items-center gap-2"
                 >
-                  <Mail size={13} />
-                  <span>Send Email</span>
+                  <Mail size={13} className="text-vscode-green" />
+                  <span>Compose in Gmail (New Tab)</span>
                 </a>
+                <button
+                  onClick={() => { openFile('contact'); setActiveMenu(null); }}
+                  className="w-full text-left px-3 py-1.5 hover:bg-vscode-blue2 hover:text-white flex items-center gap-2"
+                >
+                  <Mail size={13} className="text-vscode-blue" />
+                  <span>In-App Contact (contact.css)</span>
+                </button>
               </div>
             )}
           </div>

@@ -31,7 +31,7 @@ export const ReadmeView: React.FC = () => {
               Apps Shipped: 15+
             </span>
             <span className="px-2.5 py-1 rounded text-[11px] font-mono font-semibold bg-[#ff6fd8]/20 text-[#ff6fd8] border border-[#ff6fd8]/30">
-              AWS S3 4GB+ Multipart
+              Cross-Platform: Android &amp; iOS
             </span>
             <span className="px-2.5 py-1 rounded text-[11px] font-mono font-semibold bg-[#fabd2f]/20 text-[#fabd2f] border border-[#fabd2f]/30">
               B.Tech GPA: 8.4/10
@@ -45,7 +45,7 @@ export const ReadmeView: React.FC = () => {
             🚀 About Me
           </h2>
           <p className="text-sm text-vscode-dim leading-relaxed">
-            I am a mobile developer dedicated to crafting high-performance, polished cross-platform applications. My core expertise is in React Native, modern state management (Redux Toolkit &amp; RTK Query), high-throughput media streaming, and robust backend integrations (AWS S3, Razorpay, Firebase).
+            I am a mobile developer dedicated to crafting high-performance, polished cross-platform applications. My core expertise is in React Native, modern state management (Redux Toolkit &amp; RTK Query), interactive media, and robust third-party integrations (Razorpay, Firebase, ZegoCloud).
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Copy, Check, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Copy, Check, Send, ExternalLink } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
 export const ContactView: React.FC = () => {
@@ -8,9 +8,9 @@ export const ContactView: React.FC = () => {
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
   const handleCopy = (text: string, label: string) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
     setCopiedItem(label);
-    setTimeout(() => setCopiedItem(null), 2000);
+    setTimeout(() => setCopiedItem(null), 2500);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -54,12 +54,16 @@ export const ContactView: React.FC = () => {
                 <Mail size={18} />
               </div>
               <div>
-                <div className="text-[11px] text-vscode-dim font-mono">Email Address</div>
+                <div className="text-[11px] text-vscode-dim font-mono">Email Address (Click to open Gmail)</div>
                 <a
-                  href={`mailto:${PERSONAL_INFO.email}`}
-                  className="text-xs sm:text-sm font-semibold text-vscode-bright hover:text-vscode-blue transition-colors"
+                  href={PERSONAL_INFO.links.gmail}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs sm:text-sm font-semibold text-vscode-bright hover:text-vscode-blue transition-colors flex items-center gap-1.5"
+                  title="Open Gmail Composer in new tab"
                 >
-                  {PERSONAL_INFO.email}
+                  <span>{PERSONAL_INFO.email}</span>
+                  <ExternalLink size={12} className="text-vscode-dim" />
                 </a>
               </div>
             </div>

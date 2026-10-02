@@ -307,7 +307,7 @@ export const Sidebar: React.FC = () => {
               )
             ) : (
               <div className="text-vscode-dim text-center py-8 px-4 leading-relaxed">
-                Type keywords like <span className="text-vscode-blue">"React Native"</span>, <span className="text-vscode-yellow">"S3"</span>, or <span className="text-vscode-green">"Razorpay"</span>.
+                Type keywords like <span className="text-vscode-blue">"React Native"</span>, <span className="text-vscode-yellow">"Redux"</span>, or <span className="text-vscode-green">"Razorpay"</span>.
               </div>
             )}
           </div>

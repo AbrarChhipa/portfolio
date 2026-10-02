@@ -68,25 +68,26 @@ export const PERSONAL_INFO = {
   email: "abrarchhipa23@gmail.com",
   phone: "+91 9950786083",
   status: "Available for new opportunities & contracts",
-  summary: "React Native Developer with 1.5+ years shipping production cross-platform apps (Android & iOS) using React Native, React.js, TypeScript, Redux Toolkit, RTK Query, REST APIs, Razorpay, AWS S3, and Firebase Auth.",
+  summary: "React Native Developer with 1.5+ years shipping production cross-platform apps (Android & iOS) using React Native, React.js, TypeScript, Redux Toolkit, RTK Query, REST APIs, Razorpay, and Firebase Auth.",
   links: {
     github: "https://github.com/AbrarChhipa",
-    linkedin: "https://linkedin.com/in/abrarchhipa",
+    linkedin: "https://in.linkedin.com/in/mohammad-abrar-a75523275",
     email: "mailto:abrarchhipa23@gmail.com",
+    gmail: "https://mail.google.com/mail/?view=cm&fs=1&to=abrarchhipa23@gmail.com",
     phone: "tel:+919950786083",
   },
   stats: [
     { label: "Experience", value: "1.5+ Yrs" },
     { label: "Production Apps", value: "15+" },
-    { label: "S3 Multipart Upload", value: "4GB+" },
+    { label: "Cross-Platform", value: "Android & iOS" },
     { label: "API Latency Reduction", value: "30%" },
   ],
   typewriterRoles: [
     "React Native Developer 📱",
-    "Building High-Speed Video & Reels Modules 🎥",
     "Shipping Cross-Platform iOS & Android Apps 🚀",
-    "Real-Time Live Streaming Specialist (ZegoCloud) ⚡",
-    "Clean Architecture & Performance Fanatic ✨",
+    "Redux Toolkit & RTK Query Architecture ⚛️",
+    "Interactive Reels & Video Experiences 🎥",
+    "Clean Code & Mobile Performance Fanatic ✨",
   ],
 };
 
@@ -236,20 +237,20 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "reels-stories-engine",
-    name: "Reels & Stories Engine",
+    name: "Reels & Stories Feature Module",
     category: "system",
     period: "2025",
     icon: "🎬",
     accent: "#ff6fd8",
-    tagline: "4GB+ AWS S3 multipart video uploader & interactive media editor",
-    description: "Engineered an Instagram-grade Reels and Stories subsystem for mobile applications at Websenor Infotech. Capable of uploading massive 4GB+ raw video files within ~2 minutes using chunked multipart S3 uploads with client-side compression.",
+    tagline: "High-performance video module with interactive stickers & doodle editor",
+    description: "Engineered an Instagram-style Reels and Stories subsystem for production mobile applications at Websenor Infotech. Supports multi-story uploads, pinch-to-zoom stickers, custom text overlays, and gesture doodle tools for videos and images.",
     keyFeatures: [
-      "AWS S3 multipart chunked uploader supporting 4GB+ files at 400–500 MB in ~2 mins",
-      "Multi-story sequential upload with automatic retry queue and background tasks",
+      "Multi-story upload with automated queue handling and background progress tasks",
       "Interactive editor: pinch-to-zoom stickers, custom text overlays, and gesture doodling",
-      "Native video compression pipeline reducing data footprint before upload",
+      "Optimized multipart media chunking module supporting large video files",
+      "Smooth 60fps animations with React Native Reanimated",
     ],
-    techStack: ["React Native", "AWS S3 Multipart", "PanResponder", "Reanimated 3", "FFmpeg/Video Processing"],
+    techStack: ["React Native", "PanResponder", "Reanimated 3", "Video Processing", "AWS S3 Multipart"],
     links: {
       github: "https://github.com/AbrarChhipa",
     },
@@ -308,16 +309,16 @@ export const EXPERIENCES: Experience[] = [
     summary: "Leading cross-platform mobile app development, media architectures, and store deployments for production consumer applications.",
     achievements: [
       "Contributed to 15+ production React Native applications and independently designed, developed, and delivered 5 complete mobile applications from concept through deployment.",
-      "Engineered a high-performance video upload module supporting files of 4GB and larger using AWS S3 multipart upload, achieving upload speeds of 400–500 MB in approximately 2 minutes through optimized bandwidth management.",
       "Developed Instagram-style Reels and Stories features, including multi-story upload, pinch-to-zoom stickers and text overlays, and custom doodle tools for both images and videos.",
       "Implemented real-time live streaming with integrated chat using ZegoCloud, enabling scalable, low-latency communication.",
-      "Integrate secure authentication flows (Google Sign-In, Apple Sign-In, Firebase OTP) and push notifications using token-based architecture.",
       "Optimized API integration using Axios and RTK Query, improving caching efficiency and reducing latency by 30%.",
+      "Engineered high-performance video upload modules supporting large files using optimized bandwidth management.",
+      "Integrate secure authentication flows (Google Sign-In, Apple Sign-In, Firebase OTP) and push notifications using token-based architecture.",
       "Published and managed application releases on Google Play Store and Apple App Store, including signing certificates and Apple Push Notification service (APNs) configuration.",
       "Delivered features for 3 external client projects as an outsourced engineer, consistently meeting strict deadlines.",
       "Enhanced application performance through optimized React Hooks usage and improved component architecture.",
     ],
-    technologies: ["React Native", "TypeScript", "Redux Toolkit", "RTK Query", "AWS S3", "ZegoCloud", "Firebase", "Razorpay", "Xcode", "Android Studio"],
+    technologies: ["React Native", "TypeScript", "Redux Toolkit", "RTK Query", "ZegoCloud", "Firebase", "Razorpay", "Xcode", "Android Studio"],
   },
   {
     id: "lakebrains",
@@ -359,11 +360,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: "React Native (iOS & Android)", level: "Production Expert", proficiency: 95, highlight: true },
       { name: "Expo Ecosystem", level: "Advanced", proficiency: 90, highlight: true },
-      { name: "Mobile UI / UX & Gestures", level: "Advanced", proficiency: 90 },
+      { name: "Mobile UI / UX & Gestures", level: "Advanced", proficiency: 92, highlight: true },
       { name: "SQLite & Offline Storage", level: "Advanced", proficiency: 88 },
       { name: "NFC Integration", level: "Specialist", proficiency: 85 },
-      { name: "Video Processing (Reels/Stories)", level: "Specialist", proficiency: 92, highlight: true },
-      { name: "Live Streaming (ZegoCloud)", level: "Specialist", proficiency: 90, highlight: true },
+      { name: "Video Processing (Reels/Stories)", level: "Specialist", proficiency: 90 },
+      { name: "Live Streaming (ZegoCloud)", level: "Specialist", proficiency: 90 },
     ],
   },
   {
@@ -393,12 +394,12 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     category: "Cloud, Auth & Integrations",
     icon: "☁️",
     skills: [
-      { name: "AWS S3 (Multipart Upload 4GB+)", level: "Specialist", proficiency: 92, highlight: true },
       { name: "Razorpay Payment Gateway", level: "Advanced", proficiency: 90, highlight: true },
       { name: "Firebase Authentication", level: "Advanced", proficiency: 90 },
       { name: "Google & Apple Sign-In", level: "Advanced", proficiency: 88 },
       { name: "Firebase OTP Verification", level: "Advanced", proficiency: 88 },
       { name: "Push Notifications (APNs / FCM)", level: "Advanced", proficiency: 88 },
+      { name: "AWS S3 Cloud Storage", level: "Specialist", proficiency: 88 },
     ],
   },
   {
@@ -406,7 +407,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     icon: "🛠️",
     skills: [
       { name: "Git, GitHub & BitBucket", level: "Advanced", proficiency: 92, highlight: true },
-      { name: "Apple App Store Connect", level: "Production Releases", proficiency: 88, highlight: true },
+      { name: "Apple App Store Connect", level: "Production Releases", proficiency: 90, highlight: true },
       { name: "Google Play Console", level: "Production Releases", proficiency: 90, highlight: true },
       { name: "Xcode & iOS Toolchain", level: "Advanced", proficiency: 85 },
       { name: "Android Studio & Gradle", level: "Advanced", proficiency: 88 },
@@ -426,7 +427,7 @@ export const THEMES = [
 ];
 
 export const GIT_COMMITS = [
-  { hash: "f8d32a1", message: "feat: add AWS S3 multipart upload for 4GB video streams", date: "2 days ago", author: "Mohammad Abrar" },
+  { hash: "f8d32a1", message: "feat: release Instagram-style Reels & Stories features", date: "2 days ago", author: "Mohammad Abrar" },
   { hash: "c29e47b", message: "feat: implement ZegoCloud low-latency live broadcast", date: "5 days ago", author: "Mohammad Abrar" },
   { hash: "a71b9c0", message: "perf: optimize RTK Query caching reducing latency by 30%", date: "1 week ago", author: "Mohammad Abrar" },
   { hash: "e44d812", message: "feat: release BlindAssist App with offline Venue Mode & NFC", date: "2 weeks ago", author: "Mohammad Abrar" },
