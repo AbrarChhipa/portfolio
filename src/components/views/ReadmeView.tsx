@@ -45,7 +45,7 @@ export const ReadmeView: React.FC = () => {
             🚀 About Me
           </h2>
           <p className="text-sm text-vscode-dim leading-relaxed">
-            I am a mobile developer dedicated to crafting high-performance, polished cross-platform applications. My core expertise is in React Native, modern state management (Redux Toolkit &amp; RTK Query), interactive media, and robust third-party integrations (Razorpay, Firebase, ZegoCloud).
+            I am a mobile developer dedicated to crafting high-performance, polished cross-platform applications. My core expertise is in React Native, modern state management (Redux Toolkit &amp; RTK Query), interactive media, and robust third-party integrations (Razorpay, Firebase, Agora RTC).
           </p>
         </div>
 

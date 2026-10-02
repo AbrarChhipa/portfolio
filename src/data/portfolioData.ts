@@ -262,15 +262,15 @@ export const PROJECTS: Project[] = [
     period: "2025",
     icon: "📡",
     accent: "#7aa2f7",
-    tagline: "Ultra-low latency live broadcasting & real-time chat with ZegoCloud",
+    tagline: "Ultra-low latency live broadcasting & real-time chat with Agora Services",
     description: "Implemented a full-featured live broadcasting module supporting interactive host-audience streams with low latency, real-time comment feeds, gift reactions, and co-hosting capabilities.",
     keyFeatures: [
-      "ZegoCloud RTC integration for sub-second video and audio broadcasting",
+      "Agora RTC integration for sub-second video and audio broadcasting",
       "High-throughput real-time chat feed with reaction bubbles and moderations",
       "Stream health metrics and adaptive bitrate based on network bandwidth",
       "Token-based room authentication and broadcaster permissions",
     ],
-    techStack: ["React Native", "ZegoCloud RTC", "WebSockets", "Firebase", "Redux Toolkit"],
+    techStack: ["React Native", "Agora RTC", "WebSockets", "Firebase", "Redux Toolkit"],
     links: {
       github: "https://github.com/AbrarChhipa",
     },
@@ -310,7 +310,7 @@ export const EXPERIENCES: Experience[] = [
     achievements: [
       "Contributed to 15+ production React Native applications and independently designed, developed, and delivered 5 complete mobile applications from concept through deployment.",
       "Developed Instagram-style Reels and Stories features, including multi-story upload, pinch-to-zoom stickers and text overlays, and custom doodle tools for both images and videos.",
-      "Implemented real-time live streaming with integrated chat using ZegoCloud, enabling scalable, low-latency communication.",
+      "Implemented real-time live streaming with integrated chat using Agora RTC, enabling scalable, low-latency communication.",
       "Optimized API integration using Axios and RTK Query, improving caching efficiency and reducing latency by 30%.",
       "Engineered high-performance video upload modules supporting large files using optimized bandwidth management.",
       "Integrate secure authentication flows (Google Sign-In, Apple Sign-In, Firebase OTP) and push notifications using token-based architecture.",
@@ -318,7 +318,7 @@ export const EXPERIENCES: Experience[] = [
       "Delivered features for 3 external client projects as an outsourced engineer, consistently meeting strict deadlines.",
       "Enhanced application performance through optimized React Hooks usage and improved component architecture.",
     ],
-    technologies: ["React Native", "TypeScript", "Redux Toolkit", "RTK Query", "ZegoCloud", "Firebase", "Razorpay", "Xcode", "Android Studio"],
+    technologies: ["React Native", "TypeScript", "Redux Toolkit", "RTK Query", "Agora RTC", "Firebase", "Razorpay", "Xcode", "Android Studio"],
   },
   {
     id: "lakebrains",
@@ -364,7 +364,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "SQLite & Offline Storage", level: "Advanced", proficiency: 88 },
       { name: "NFC Integration", level: "Specialist", proficiency: 85 },
       { name: "Video Processing (Reels/Stories)", level: "Specialist", proficiency: 90 },
-      { name: "Live Streaming (ZegoCloud)", level: "Specialist", proficiency: 90 },
+      { name: "Live Streaming (Agora RTC)", level: "Specialist", proficiency: 90 },
     ],
   },
   {
@@ -428,7 +428,7 @@ export const THEMES = [
 
 export const GIT_COMMITS = [
   { hash: "f8d32a1", message: "feat: release Instagram-style Reels & Stories features", date: "2 days ago", author: "Mohammad Abrar" },
-  { hash: "c29e47b", message: "feat: implement ZegoCloud low-latency live broadcast", date: "5 days ago", author: "Mohammad Abrar" },
+  { hash: "c29e47b", message: "feat: implement Agora RTC low-latency live broadcast", date: "5 days ago", author: "Mohammad Abrar" },
   { hash: "a71b9c0", message: "perf: optimize RTK Query caching reducing latency by 30%", date: "1 week ago", author: "Mohammad Abrar" },
   { hash: "e44d812", message: "feat: release BlindAssist App with offline Venue Mode & NFC", date: "2 weeks ago", author: "Mohammad Abrar" },
   { hash: "9b3c108", message: "feat: Razorpay integrated turf booking workflows", date: "3 weeks ago", author: "Mohammad Abrar" },

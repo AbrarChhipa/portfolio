@@ -394,8 +394,8 @@ export const Sidebar: React.FC = () => {
                 <div>• React Native 0.74+</div>
                 <div>• TypeScript 5.x</div>
                 <div>• Redux Toolkit &amp; RTK Query</div>
-                <div>• AWS S3 Multipart Uploader</div>
-                <div>• ZegoCloud RTC Engine</div>
+                <div>• Razorpay Payment Integration</div>
+                <div>• Agora RTC Engine</div>
               </div>
             </div>
           </div>

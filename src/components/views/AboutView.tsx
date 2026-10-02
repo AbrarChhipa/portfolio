@@ -56,7 +56,7 @@ export const AboutView: React.FC = () => {
 
         <p className="text-vscode-dim">
           I thrive on solving difficult technical hurdles: developing interactive Instagram-style stories with custom gesture doodling and stickers, integrating ultra-low latency live broadcasting via{' '}
-          <span className="text-vscode-purple">ZegoCloud</span>, optimizing API layers with RTK Query to slash latency by 30%, and building voice-guided accessibility tools with NFC for visually impaired users.
+          <span className="text-vscode-purple">Agora RTC</span>, optimizing API layers with RTK Query to slash latency by 30%, and building voice-guided accessibility tools with NFC for visually impaired users.
         </p>
 
         <p className="text-vscode-dim">
