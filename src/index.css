@@ -224,3 +224,64 @@
 .hover-lift:hover {
   transform: translateY(-2px);
 }
+
+/* Native dialog keeps the IDE inert and traps focus while the phone is open. */
+.simulator-dialog {
+  width: min(368px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  margin: auto;
+  overflow: hidden;
+  color: var(--text);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 24px 100px rgba(0, 0, 0, 0.55);
+}
+
+.simulator-dialog[open] { animation: simulatorEnter 180ms ease-out; }
+.simulator-dialog::backdrop { background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); }
+.simulator-toolbar { height: 44px; padding: 0 10px 0 16px; display: flex; align-items: center; justify-content: space-between; }
+.simulator-close { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 8px; color: var(--dim); }
+.simulator-close:hover { color: var(--bright); background: var(--bg3); }
+.simulator-close:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.simulator-phone { height: min(780px, calc(100dvh - 90px)); padding: 7px; margin: 0 10px 10px; background: #080c10; border: 1px solid #3a4048; border-radius: 38px; box-shadow: inset 0 0 0 2px #141a20; }
+.simulator-screen { height: 100%; display: flex; flex-direction: column; overflow: hidden; border-radius: 30px; color: #f4f7fb; background: radial-gradient(ellipse at 100% 0%, #254951 0%, transparent 65%), radial-gradient(ellipse at 0% 100%, #263e5a 0%, transparent 65%), #101c2a; }
+.simulator-status-bar { position: relative; display: flex; flex-shrink: 0; align-items: center; justify-content: space-between; height: 40px; padding: 0 21px; font-size: 12px; font-weight: 600; }
+.simulator-camera { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); width: 12px; height: 12px; background: #080c10; border: 2px solid #18232e; border-radius: 50%; }
+.simulator-launcher { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 32px 18px 12px; }
+.simulator-intro { padding: 0 8px; margin-bottom: 28px; }
+.simulator-intro h3 { font-size: 23px; font-weight: 600; letter-spacing: -0.6px; line-height: 1.3; margin-bottom: 10px; }
+.simulator-intro > p:last-child { font-size: 12px; line-height: 1.6; color: #bacbd5; }
+.simulator-app-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 8px; row-gap: 22px; }
+.simulator-app { display: flex; flex-direction: column; align-items: center; gap: 9px; min-width: 0; padding: 4px 0; border-radius: 14px; -webkit-tap-highlight-color: transparent; }
+.simulator-app:focus-visible { outline: 2px solid #b8e8ff; outline-offset: 3px; background: rgba(255, 255, 255, 0.06); }
+.simulator-app-icon { display: grid; place-items: center; flex-shrink: 0; width: 64px; height: 64px; border-radius: 18px; overflow: hidden; background: #eef3f6; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18); transition: transform 160ms ease, box-shadow 160ms ease; }
+.simulator-app-icon img { width: 100%; height: 100%; object-fit: contain; }
+.simulator-app:hover .simulator-app-icon { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28); }
+.simulator-app:active .simulator-app-icon { transform: scale(0.95); }
+.simulator-app-initials { color: #1a4054; font-size: 22px; font-weight: 700; }
+.simulator-app-name { max-width: 100%; color: #f4f7fb; font-size: 11px; line-height: 1.4; text-align: center; overflow-wrap: anywhere; }
+.simulator-launcher-footer { display: flex; justify-content: space-between; margin: 28px 8px 0; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 10px; color: #a8c0cf; }
+.simulator-navigation { display: grid; place-items: center; flex-shrink: 0; height: 25px; }
+.simulator-navigation span { width: 94px; height: 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.65); }
+
+@keyframes simulatorEnter {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-height: 700px) {
+  .simulator-launcher { padding-top: 18px; }
+  .simulator-intro { margin-bottom: 20px; }
+  .simulator-app-grid { row-gap: 16px; }
+  .simulator-launcher-footer { margin-top: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .simulator-dialog[open] { animation: none; }
+  .simulator-app-icon { transition: none; }
+  .simulator-app:hover .simulator-app-icon,
+  .simulator-app:active .simulator-app-icon { transform: none; }
+}

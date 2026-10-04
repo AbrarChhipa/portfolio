@@ -19,6 +19,7 @@ Inspired by [aahanabobade.com](https://www.aahanabobade.com/) and powered by Rea
     - `README.md`: Profile documentation & quick links
     - `Mohammad_Abrar_Resume.pdf`: Embedded PDF viewer & direct download button
   - Tabbed Editor with breadcrumbs (`portfolio > src > ...`) and file-type colored badges
+  - **Mobile App Simulator**: Run Project Demo or Launch Mobile App opens an Android-style phone with nine original app logos; each app links to its Google Play listing
   - Real simulated Terminal shell supporting `help`, `ls`, `pwd`, `cat`, `open`, `whoami`, `projects`, `skills`, `contact`, `git log`, `theme`, `resume`, `clear`, etc.
   - Status Bar with git branch, error counters, Prettier, language mode, line/col, and theme picker
 - **6 Switchable Color Themes** (stored in `localStorage`):
@@ -56,6 +57,17 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+## Browser Checks
+
+```bash
+npx playwright install chromium
+npm run test:e2e
+```
+
+Headless Chromium checks cover desktop, mobile, landscape, keyboard navigation, app links, local logos, and logo failure handling. Screenshots are saved under `test-results/`.
+
+See [the simulator maintenance notes](docs/mobile-simulator.md) for the app catalog, asset sources, and interaction decisions.
 
 ## 📄 License
 

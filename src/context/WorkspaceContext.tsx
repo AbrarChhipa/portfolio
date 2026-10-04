@@ -12,11 +12,14 @@ interface WorkspaceContextType {
   terminalOpen: boolean;
   terminalTab: TerminalTab;
   commandPaletteOpen: boolean;
+  simulatorOpen: boolean;
   searchQuery: string;
   currentFile: PortfolioFile;
   openFile: (fileId: string) => void;
   closeTab: (fileId: string) => void;
   closeAllTabs: () => void;
+  openSimulator: () => void;
+  closeSimulator: () => void;
   setSidebarView: (view: SidebarView) => void;
   toggleSidebar: () => void;
   setTerminalOpen: (open: boolean) => void;
@@ -43,6 +46,7 @@ export const WorkspaceProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [terminalOpen, setTerminalOpen] = useState<boolean>(true);
   const [terminalTab, setTerminalTab] = useState<TerminalTab>('terminal');
   const [commandPaletteOpen, setCommandPaletteOpen] = useState<boolean>(false);
+  const [simulatorOpen, setSimulatorOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const isSidebarOpen = sidebarView !== null;
@@ -108,11 +112,17 @@ export const WorkspaceProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         terminalOpen,
         terminalTab,
         commandPaletteOpen,
+        simulatorOpen,
         searchQuery,
         currentFile,
         openFile,
         closeTab,
         closeAllTabs,
+        openSimulator: () => {
+          setCommandPaletteOpen(false);
+          setSimulatorOpen(true);
+        },
+        closeSimulator: () => setSimulatorOpen(false),
         setSidebarView,
         toggleSidebar,
         setTerminalOpen,

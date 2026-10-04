@@ -23,6 +23,7 @@ export const Sidebar: React.FC = () => {
     setSidebarView,
     activeTab, 
     openFile, 
+    openSimulator,
     searchQuery, 
     setSearchQuery 
   } = useWorkspace();
@@ -406,7 +407,7 @@ export const Sidebar: React.FC = () => {
               </button>
             </div>
             <div className="p-3 border-b border-vscode-border flex items-center gap-2">
-              <button className="flex items-center gap-1.5 bg-vscode-blue2 text-white px-3 py-1 rounded text-xs hover:opacity-90">
+              <button onClick={openSimulator} className="flex items-center gap-1.5 bg-vscode-blue2 text-white px-3 py-1 rounded text-xs hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-vscode-blue">
                 <Play size={12} fill="white" /> Launch Mobile App
               </button>
               <button className="p-1 rounded hover:bg-white/10 text-vscode-dim">

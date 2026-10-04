@@ -5,21 +5,18 @@ import { FileIcon } from '../common/FileIcon';
 import { PORTFOLIO_FILES } from '../../data/portfolioData';
 
 export const EditorTabs: React.FC = () => {
-  const { openTabs, activeTab, openFile, closeTab, currentFile } = useWorkspace();
-
-  if (openTabs.length === 0) {
-    return (
-      <div className="h-9 bg-vscode-bg2 border-b border-vscode-border flex items-center px-4 text-xs text-vscode-dim">
-        No open files. Choose a file from the Explorer.
-      </div>
-    );
-  }
+  const { openTabs, activeTab, openFile, closeTab, currentFile, openSimulator } = useWorkspace();
 
   return (
     <div className="flex flex-col bg-vscode-bg select-none border-b border-vscode-border shrink-0">
       {/* Tab Bar */}
-      <div className="flex items-center justify-between bg-vscode-bg2 overflow-x-auto no-scrollbar touch-scroll whitespace-nowrap">
-        <div className="flex items-center">
+      <div className="flex items-center bg-vscode-bg2 min-w-0">
+        <div className="flex flex-1 min-w-0 items-center overflow-x-auto no-scrollbar touch-scroll whitespace-nowrap">
+          {openTabs.length === 0 && (
+            <span className="px-3 py-2 text-xs text-vscode-dim truncate">
+              No open files. Choose a file from the Explorer.
+            </span>
+          )}
           {openTabs.map((fileId) => {
             const file = PORTFOLIO_FILES.find((f) => f.id === fileId);
             if (!file) return null;
@@ -46,6 +43,7 @@ export const EditorTabs: React.FC = () => {
                     isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                   } transition-opacity`}
                   title="Close (⌘W)"
+                  aria-label={`Close ${file.name}`}
                 >
                   <X size={12} />
                 </button>
@@ -55,25 +53,26 @@ export const EditorTabs: React.FC = () => {
         </div>
 
         {/* Tab Right Actions */}
-        <div className="hidden sm:flex items-center gap-2 pr-3 text-vscode-dim shrink-0">
+        <div className="flex items-center gap-1 px-2 text-vscode-dim shrink-0 border-l border-vscode-border">
           <button 
-            onClick={() => openFile('projects')}
-            className="p-1 hover:text-vscode-bright hover:bg-white/10 rounded" 
+            onClick={openSimulator}
+            className="min-h-9 min-w-9 flex items-center justify-center hover:text-vscode-green hover:bg-white/10 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-vscode-blue"
             title="Run Project Demo"
+            aria-label="Run Project Demo"
           >
             <Play size={13} fill="currentColor" />
           </button>
-          <button className="p-1 hover:text-vscode-bright hover:bg-white/10 rounded" title="Split Editor Right">
+          <button className="hidden sm:block p-1 hover:text-vscode-bright hover:bg-white/10 rounded" title="Split Editor Right">
             <SplitSquareVertical size={13} />
           </button>
-          <button className="p-1 hover:text-vscode-bright hover:bg-white/10 rounded" title="More Actions">
+          <button className="hidden sm:block p-1 hover:text-vscode-bright hover:bg-white/10 rounded" title="More Actions">
             <MoreHorizontal size={13} />
           </button>
         </div>
       </div>
 
       {/* Breadcrumb Bar */}
-      {currentFile && (
+      {openTabs.length > 0 && currentFile && (
         <div className="h-6 px-3 sm:px-4 bg-vscode-bg border-b border-vscode-border/40 flex items-center gap-1.5 text-[10px] sm:text-[11px] text-vscode-dim font-mono overflow-x-auto no-scrollbar">
           <span className="hover:text-vscode-bright cursor-pointer" onClick={() => openFile('home')}>portfolio</span>
           <ChevronRight size={11} className="text-vscode-dim/60" />

@@ -8,6 +8,7 @@ import { EditorTabs } from './components/layout/EditorTabs';
 import { StatusBar } from './components/layout/StatusBar';
 import { TerminalPanel } from './components/layout/TerminalPanel';
 import { CommandPalette } from './components/layout/CommandPalette';
+import { MobileSimulator } from './components/simulator/MobileSimulator';
 
 // Tab Views
 import { HomeView } from './components/views/HomeView';
@@ -123,6 +124,7 @@ const WorkspaceLayout: React.FC = () => {
 
       {/* Command Palette Overlay */}
       <CommandPalette />
+      <MobileSimulator />
     </div>
   );
 };
